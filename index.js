@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const AuthRouter = require("./auth-router");
+
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -11,6 +13,7 @@ const app = express();
 // The express.json() function is a built-in middleware function in Express. 
 // It parses incoming requests with JSON payloads and is based on body-parser. 
 app.use(express.json());
+app.use("/auth", AuthRouter);
 
 const start = async () => {
 	try {
